@@ -7,7 +7,8 @@ public class Coche {
 
 
     /**
-     * Constructor de la clase, deja velocidad a 0
+     * Constructor de la clase, deja velocidad y distancia a 0,
+     * la gasolina la empieza en 100
      * @param mat
      * @param modelo
      */
@@ -15,6 +16,8 @@ public class Coche {
         this.setMatricula(mat);
         this.setModelo(modelo);
         this.setVelocidad(0);
+        this.gasolina = 100;
+        this.distancia = 0;
     }
 
     public int getVelocidad() {
