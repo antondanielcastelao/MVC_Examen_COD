@@ -60,6 +60,8 @@ public class Controller {
         String mat = View.pedirMatricula();
         int l = View.pedirGasolina();
         Model.echarGasolina(mat, l);
+        View.msg("Se han echado " + l + " l de gasolina en el coche matricula " + mat);
+
         return true;
     }
 
@@ -71,6 +73,7 @@ public class Controller {
         String mat = View.pedirMatricula();
         int m = View.pedirDistancia();
         Model.avanzar(mat, m);
+        View.msg("Se han avanzado " + m + " en el coche matricula " + mat);
         return true;
     }
 

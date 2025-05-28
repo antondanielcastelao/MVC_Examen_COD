@@ -76,4 +76,8 @@ public class View {
         return sc.nextInt();
     }
 
+    public static void msg(String t) {
+        System.out.println("[+] MSG: " + t);
+    }
+
 }
