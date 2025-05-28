@@ -41,10 +41,37 @@ public class Controller {
     public static String listaCoches() {
         StringBuilder aux = new StringBuilder("\n+++ Listado de coches:\n");
         for (Coche c: Model.parking) {
-            aux.append("\nMatricula ").append(c.getMatricula()).append(" Modelo ").append(c.getModelo()).append("\nVelocidade: ").append(c.getVelocidad()).append("\n");
+            aux.append("\nMatricula ").append(c.getMatricula())
+                    .append(" Modelo ").append(c.getModelo())
+                    .append("\nVelocidade: ").append(c.getVelocidad())
+                    .append(" Gasolina ").append(c.gasolina)
+                    .append(" Distancia ").append(c.distancia)
+                    .append("\n");
         }
 
         return aux.toString();
+    }
+
+    /**
+     * Añade gasofa a un coche
+     * @return
+     */
+    public static boolean echarGasolina() {
+        String mat = View.pedirMatricula();
+        int l = View.pedirGasolina();
+        Model.echarGasolina(mat, l);
+        return true;
+    }
+
+    /**
+     * Avanza n metros
+     * @return
+     */
+    public static boolean avanzar() {
+        String mat = View.pedirMatricula();
+        int m = View.pedirDistancia();
+        Model.avanzar(mat, m);
+        return true;
     }
 
 }

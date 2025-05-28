@@ -38,4 +38,20 @@ public class Model {
         Coche aux = getCoche(matricula);
         aux.setVelocidad(aux.getVelocidad() + velocidad);
     };
+
+    /**
+     * Añade gasofa a un coche
+     * @return
+     */
+    public static boolean echarGasolina(String matricula, int litros) {
+        Coche c = getCoche(matricula);
+        c.gasolina += litros;
+        return true;
+    }
+
+    public static boolean avanzar(String matricula, int m) {
+        Coche c = getCoche(matricula);
+        c.avanzar(m);
+        return true;
+    }
 }

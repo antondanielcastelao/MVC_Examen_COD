@@ -2,6 +2,8 @@ public class Coche {
     String matricula;
     String modelo;
     int velocidad;
+    double gasolina;
+    int distancia;
 
 
     /**
@@ -9,7 +11,7 @@ public class Coche {
      * @param mat
      * @param modelo
      */
-    public Coche(String mat, String modelo) {
+    public Coche(String modelo, String mat ) {
         this.setMatricula(mat);
         this.setModelo(modelo);
         this.setVelocidad(0);
@@ -38,6 +40,14 @@ public class Coche {
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-
+    /**
+     * Avanza y quita gasolina
+     * @param m
+     */
+    public boolean avanzar(int m) {
+        this.distancia += m;
+        this.gasolina -= m*0.2;
+        return true;
+    }
 
 }
