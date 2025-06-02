@@ -51,6 +51,7 @@ public class View {
         System.out.println("Introduce modelo: ");
         return sc.next();
     }
+
     /**
      * Pide la velocidad al usuario
      * @return
@@ -78,6 +79,10 @@ public class View {
 
     public static void msg(String t) {
         System.out.println("[+] MSG: " + t);
+    }
+
+    public static void avisoVelocidad() {
+        System.out.println("[OBSERVER] La velocidad ha superado el limite.");
     }
 
 }

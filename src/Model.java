@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 public class Model {
     public static ArrayList<Coche> parking = new ArrayList<>();
+    static Observer oLimite = new ObserverVelocidad();
+
+
 
     /**
      * Añade un nuevo coche al parking
@@ -37,6 +40,8 @@ public class Model {
     public static void cambiarVelocidad(String matricula, int velocidad) {
         Coche aux = getCoche(matricula);
         aux.setVelocidad(aux.getVelocidad() + velocidad);
+        // Cada vez que se cambia la velocidad pasamos el objeto al observer
+        oLimite.update(aux);
     };
 
     /**
@@ -54,4 +59,5 @@ public class Model {
         c.avanzar(m);
         return true;
     }
+
 }
