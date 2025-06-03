@@ -65,6 +65,7 @@ public class Model {
     public static boolean avanzar(String matricula, int m) {
         Coche c = getCoche(matricula);
         c.avanzar(m);
+        notifyObservers(c);
         return true;
     }
 
