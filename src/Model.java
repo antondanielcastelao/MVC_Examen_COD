@@ -2,8 +2,16 @@ import java.util.ArrayList;
 
 public class Model {
     public static ArrayList<Coche> parking = new ArrayList<>();
+    // instanciamos todos los observadores
     static Observer oLimite = new ObserverVelocidad();
+    static Observer oGasolina = new ObserverGasolina();
 
+    // los almacenamos en una lista de observadores
+    static ArrayList<Observer> observers = new ArrayList<>();
+    static {
+        observers.add(oLimite);
+        observers.add(oGasolina);
+    }
 
 
     /**
@@ -40,8 +48,8 @@ public class Model {
     public static void cambiarVelocidad(String matricula, int velocidad) {
         Coche aux = getCoche(matricula);
         aux.setVelocidad(aux.getVelocidad() + velocidad);
-        // Cada vez que se cambia la velocidad pasamos el objeto al observer
-        oLimite.update(aux);
+        // Cada vez que se cambia la velocidad notificamos a todos los observadores
+        notifyObservers(aux);
     };
 
     /**
@@ -60,4 +68,10 @@ public class Model {
         return true;
     }
 
+    public static void notifyObservers(Coche coche) {
+        // avisamos a todos los observadores
+        for (Observer o: observers) {
+            o.update(coche);
+        }
+    }
 }
